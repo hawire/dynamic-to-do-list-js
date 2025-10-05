@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function addTask() {
         var taskText = taskInput.value.trim();
 
+        // Only proceed if taskText is not empty
         if (taskText !== '') {
             // Create a new li element
             var li = document.createElement('li');
@@ -14,12 +15,13 @@ document.addEventListener('DOMContentLoaded', function () {
             // Create a remove button
             var removeBtn = document.createElement('button');
             removeBtn.textContent = 'Remove';
-            // ✅ Use classList.add instead of className assignment
+            // ✅ Use classList.add instead of className
             removeBtn.classList.add('remove-btn');
 
-            // When clicked, remove the li element
+            // Assign an onclick event to remove the task
             removeBtn.onclick = function () {
                 taskList.removeChild(li);
             };
 
-            // Append the remov
+            // Append remove button to li
+            li.appendChild(removeBtn);
